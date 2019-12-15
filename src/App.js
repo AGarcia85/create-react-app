@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Random from './Random';
-import German from './German';
-import Husky from './Husky';
-import Malamute from './Malamute';
-import Malinois from './Malinois';
-import Samoyed from './Samoyed';
+import Random from './Puppies/Random';
+import German from './Puppies/German';
+import Husky from './Puppies/Husky';
+import Malamute from './Puppies/Malamute';
+import Malinois from './Puppies/Malinois';
+import Samoyed from './Puppies/Samoyed';
 import './App.css';
 // creating a state full function aka class
  class App extends Component {

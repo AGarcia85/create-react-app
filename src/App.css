@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,22 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.kenel {
+  background-image: url(./Puppies/park-7.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  border: 1px solid darkred;
+  margin: 20px;
+}
+
+img {
+  width: 300px;
+  height: 300px;
 }
