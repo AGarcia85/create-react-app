@@ -5,6 +5,7 @@ import Husky from './Puppies/Husky';
 import Malamute from './Puppies/Malamute';
 import Malinois from './Puppies/Malinois';
 import Samoyed from './Puppies/Samoyed';
+import Modal from './Modal/Modal'
 import './App.css';
 // creating a state full function aka class
  class App extends Component {
@@ -16,8 +17,10 @@ import './App.css';
        huskys: '',
        mali: '',
        mala: '',
-       samo: ''
+       samo: '',
+       open: false
      }
+     this.openModal = this.openModal.bind(this)
    }
    // create my fetch method
   componentDidMount() {
@@ -57,23 +60,31 @@ import './App.css';
       this.setState({samo: res.message})
       console.log(res)
   })
-
-   }
+}
+//Now need to create a method to open Modal with a click event
+openModal() {
+  const dogModal = document.querySelector(".dogModal")
+  document.addEventListener('click', function() {
+      dogModal.style.display = "block";
+  })
+  console.log("click")
+}
     
    render() {
      return (
-      <div>
+      <div className='head'>
         <header>
           <h1>Sweet Doggos</h1>
         </header>
 
         <div className='kenel'>
-        <Random doggos={this.state.doggos}/>
-        <German gsh={this.state.gsh}/>
-        <Husky huskys={this.state.huskys}/>
-        <Malinois mali={this.state.mali}/>
-        <Malamute mala={this.state.mala}/>
-        <Samoyed samo={this.state.samo}/>
+          <Modal dogModal={this.state.dogModal}/>
+          <Random doggos={this.state.doggos} label={'doggos'}/>
+          <German gsh={this.state.gsh} label={'gsh'}/>
+          <Husky huskys={this.state.huskys} label={'huskys'}/>
+          <Malinois mali={this.state.mali} label={'mali'}/>
+          <Malamute mala={this.state.mala} label={'mala'}/>
+          <Samoyed samo={this.state.samo} label={'samo'}/>
         </div>
 
       </div>
