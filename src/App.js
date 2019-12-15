@@ -18,9 +18,9 @@ import './App.css';
        mali: '',
        mala: '',
        samo: '',
-       open: false
+       show: false
      }
-     this.openModal = this.openModal.bind(this)
+     this.showModal = this.showModal.bind(this)
    }
    // create my fetch method
   componentDidMount() {
@@ -62,13 +62,17 @@ import './App.css';
   })
 }
 //Now need to create a method to open Modal with a click event
-openModal() {
-  const dogModal = document.querySelector(".dogModal")
-  document.addEventListener('click', function() {
-      dogModal.style.display = "block";
-  })
-  console.log("click")
+showModal() {
+  this.setState({
+    show: true
+  });
 }
+//Now need to create a method to open Modal with a click event
+  closeModal() {
+    this.setState({
+      show: false
+      });
+    }
     
    render() {
      return (
@@ -78,7 +82,11 @@ openModal() {
         </header>
 
         <div className='kenel'>
-          <Modal dogModal={this.state.dogModal}/>
+          <Modal show={this.state.show}/>
+          <button onClick={() => {
+            this.showModal();
+          }}
+          > show modal </button>
           <Random doggos={this.state.doggos} label={'doggos'}/>
           <German gsh={this.state.gsh} label={'gsh'}/>
           <Husky huskys={this.state.huskys} label={'huskys'}/>

@@ -2,21 +2,28 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
 
-const dogModal = document.querySelector('.dogModal')
-
 class Modal extends Component {
+    constructor(){
+        super()
+        this.state = {
+            show: false
+        }
+    }
+    //Now need to create a method to close Modal with a click event
     closeModal() {
-        document.addEventListener('click', function() {
-            dogModal.style.display = "none";
-        })
-        console.log("click")
+        this.setState({
+        show: false
+        });
     }
     render(){
+        if(!this.props.show) {
+            return null;
+        }
         return (
             <div className="dogModal">
                 <div className="dogContent">
                     <span onClick={() => { this.closeModal()}}>&times;</span>
-                    <img src={this.props.label} alt='puppies'></img>
+                    <img src={this.props.children} alt='puppies'></img>
                 </div>
             </div>
         );
