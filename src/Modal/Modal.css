@@ -23,8 +23,12 @@
 
 .dogImg {
     outline: 2px solid black;
-    max-width: 70%;
-    max-height: 50%;
+    width: 70%;
+    height: 60%;
+    display: block;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
 }
 
 span {

@@ -74,12 +74,12 @@ openModal() {
           <Modal
           open={this.state.open}
           closeModal={this.openModal}/> 
-          <button onClick={this.openModal}><img src={this.state.doggos} alt='puppies' label='doggos'></img></button>
-          <button onClick={this.openModal}><img src={this.state.gsh} alt='puppies' label='gsh'></img></button>
-          <button onClick={this.openModal}><img src={this.state.huskys} alt='puppies' label='huskys'></img></button>
-          <button onClick={this.openModal}><img src={this.state.mali} alt='puppies' label='mali'></img></button>
-          <button onClick={this.openModal}><img src={this.state.mala} alt='puppies' label='mala'></img></button>
-          <button onClick={this.openModal}><img src={this.state.samo} alt='puppies' label='samo'></img></button>
+          <button onClick={this.openModal}><img src={this.state.doggos} alt='doggos' label='doggos'></img></button>
+          <button onClick={this.openModal}><img src={this.state.gsh} alt='gsh' label='gsh'></img></button>
+          <button onClick={this.openModal}><img src={this.state.huskys} alt='huskys' label='huskys'></img></button>
+          <button onClick={this.openModal}><img src={this.state.mali} alt='mali' label='mali'></img></button>
+          <button onClick={this.openModal}><img src={this.state.mala} alt='malo' label='mala'></img></button>
+          <button onClick={this.openModal}><img src={this.state.samo} alt='samo' label='samo'></img></button>
         </div>
 
       </div>
