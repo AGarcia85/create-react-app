@@ -13,9 +13,8 @@ import './App.css';
        mala: '',
        samo: '',
        open: false,
-       dogInfo: ''
      }
-     this.openModal = this.openModal.bind(this)
+      this.openModal = this.openModal.bind(this)
    }
    // create my fetch method
   componentDidMount() {
@@ -57,10 +56,10 @@ import './App.css';
   })
 }
 //Now need to create a method to open Modal with a click event
-openModal(info) {
+openModal() {
   this.setState({
-    open: !this.state.modal,
-    dogInfo: info
+    ...this.state,
+    open: !this.state.open
   });
   console.log("click")
 }    
@@ -72,17 +71,15 @@ openModal(info) {
         </header>
 
         <div className='kenel'>
-          <Modal 
-            displayModal={this.state.open}
-            dogInfo={this.state.dogInfo}
-            closeModal={this.state.openModal}
-          />  
-          <button onClick={this.state.openModal}><img src={this.state.doggos} alt='puppies'></img></button>
-          <button onClick={this.state.openModal}><img src={this.state.gsh} alt='puppies'></img></button>
-          <button onClick={this.state.openModal}><img src={this.state.huskys} alt='puppies'></img></button>
-          <button onClick={this.state.openModal}><img src={this.state.mali} alt='puppies'></img></button>
-          <button onClick={this.state.openModal}><img src={this.state.mala} alt='puppies'></img></button>
-          <button onClick={this.state.openModal}><img src={this.state.samo} alt='puppies'></img></button>
+          <Modal
+          open={this.state.open}
+          closeModal={this.openModal}/> 
+          <button onClick={this.openModal}><img src={this.state.doggos} alt='puppies' label='doggos'></img></button>
+          <button onClick={this.openModal}><img src={this.state.gsh} alt='puppies' label='gsh'></img></button>
+          <button onClick={this.openModal}><img src={this.state.huskys} alt='puppies' label='huskys'></img></button>
+          <button onClick={this.openModal}><img src={this.state.mali} alt='puppies' label='mali'></img></button>
+          <button onClick={this.openModal}><img src={this.state.mala} alt='puppies' label='mala'></img></button>
+          <button onClick={this.openModal}><img src={this.state.samo} alt='puppies' label='samo'></img></button>
         </div>
 
       </div>

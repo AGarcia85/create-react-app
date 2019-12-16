@@ -21,6 +21,12 @@
     padding: 10px;
 }
 
+.dogImg {
+    outline: 2px solid black;
+    max-width: 70%;
+    max-height: 50%;
+}
+
 span {
     float: right;
     font-size: 25px;
