@@ -74,12 +74,12 @@ openModal() {
           <Modal
           open={this.state.open}
           closeModal={this.openModal}/> 
-          <button onClick={this.openModal}><img src={this.state.doggos} alt='doggos' label='doggos'></img></button>
-          <button onClick={this.openModal}><img src={this.state.gsh} alt='gsh' label='gsh'></img></button>
-          <button onClick={this.openModal}><img src={this.state.huskys} alt='huskys' label='huskys'></img></button>
-          <button onClick={this.openModal}><img src={this.state.mali} alt='mali' label='mali'></img></button>
-          <button onClick={this.openModal}><img src={this.state.mala} alt='malo' label='mala'></img></button>
-          <button onClick={this.openModal}><img src={this.state.samo} alt='samo' label='samo'></img></button>
+          <img onClick={this.openModal} src={this.state.doggos} alt='doggos'></img>
+          <img onClick={this.openModal} src={this.state.gsh} alt='gsh'></img>
+          <img onClick={this.openModal} src={this.state.huskys} alt='huskys'></img>
+          <img onClick={this.openModal} src={this.state.mali} alt='mali'></img>
+          <img onClick={this.openModal} src={this.state.mala} alt='malo'></img>
+          <img onClick={this.openModal} src={this.state.samo} alt='samo'></img>
         </div>
 
       </div>
