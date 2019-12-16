@@ -6,7 +6,7 @@ class Random extends Component {
     render() {
         return (
             <div>
-                <button><img src={this.props.doggos} alt='puppies'></img></button>   
+                <button onClick={this.props.openModal}><img src={this.props.doggos} alt='puppies'></img></button>   
             </div>
         )
     }

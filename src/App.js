@@ -1,10 +1,4 @@
 import React, { Component } from 'react';
-import Random from './Puppies/Random';
-import German from './Puppies/German';
-import Husky from './Puppies/Husky';
-import Malamute from './Puppies/Malamute';
-import Malinois from './Puppies/Malinois';
-import Samoyed from './Puppies/Samoyed';
 import Modal from './Modal/Modal'
 import './App.css';
 // creating a state full function aka class
@@ -18,9 +12,10 @@ import './App.css';
        mali: '',
        mala: '',
        samo: '',
-       show: false
+       open: false,
+       dogInfo: ''
      }
-     this.showModal = this.showModal.bind(this)
+     this.openModal = this.openModal.bind(this)
    }
    // create my fetch method
   componentDidMount() {
@@ -62,18 +57,13 @@ import './App.css';
   })
 }
 //Now need to create a method to open Modal with a click event
-showModal() {
+openModal(info) {
   this.setState({
-    show: true
+    open: !this.state.modal,
+    dogInfo: info
   });
-}
-//Now need to create a method to open Modal with a click event
-  closeModal() {
-    this.setState({
-      show: false
-      });
-    }
-    
+  console.log("click")
+}    
    render() {
      return (
       <div className='head'>
@@ -82,17 +72,17 @@ showModal() {
         </header>
 
         <div className='kenel'>
-          <Modal show={this.state.show}/>
-          <button onClick={() => {
-            this.showModal();
-          }}
-          > show modal </button>
-          <Random doggos={this.state.doggos} label={'doggos'}/>
-          <German gsh={this.state.gsh} label={'gsh'}/>
-          <Husky huskys={this.state.huskys} label={'huskys'}/>
-          <Malinois mali={this.state.mali} label={'mali'}/>
-          <Malamute mala={this.state.mala} label={'mala'}/>
-          <Samoyed samo={this.state.samo} label={'samo'}/>
+          <Modal 
+            displayModal={this.state.open}
+            dogInfo={this.state.dogInfo}
+            closeModal={this.state.openModal}
+          />  
+          <button onClick={this.state.openModal}><img src={this.state.doggos} alt='puppies'></img></button>
+          <button onClick={this.state.openModal}><img src={this.state.gsh} alt='puppies'></img></button>
+          <button onClick={this.state.openModal}><img src={this.state.huskys} alt='puppies'></img></button>
+          <button onClick={this.state.openModal}><img src={this.state.mali} alt='puppies'></img></button>
+          <button onClick={this.state.openModal}><img src={this.state.mala} alt='puppies'></img></button>
+          <button onClick={this.state.openModal}><img src={this.state.samo} alt='puppies'></img></button>
         </div>
 
       </div>

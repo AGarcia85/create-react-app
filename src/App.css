@@ -7,3 +7,27 @@ header {
   font-family: 'Girassol', cursive;
   color: azure;
 }
+
+.kenel {
+  background-image: url(./Modal/park-7.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+button {
+  margin: 30px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+  margin: 1px auto;
+}

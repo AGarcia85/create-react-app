@@ -1,33 +1,42 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import './Modal.css';
 
-class Modal extends Component {
-    constructor(){
-        super()
-        this.state = {
-            show: false
+const Modal = props => {
+    
+    function displayModal () {
+        switch(props.dogInfo) {
+            case 'Random':
+                return <img className="dogImg">""</img>
+            case 'German':
+                return <img className="dogImg">""</img>
+            case 'Husky':
+                return <img className="dogImg">""</img>
+            case 'Malinois':
+                return <img className="dogImg">""</img>
+            case 'Malamute':
+                return <img className="dogImg">""</img>
+            case 'Samoyed':
+                return <img className="dogImg">""</img>
+            default: return null
         }
     }
     //Now need to create a method to close Modal with a click event
-    closeModal() {
-        this.setState({
-        show: false
-        });
-    }
-    render(){
-        if(!this.props.show) {
-            return null;
-        }
-        return (
-            <div className="dogModal">
-                <div className="dogContent">
-                    <span onClick={() => { this.closeModal()}}>&times;</span>
-                    <img src={this.props.children} alt='puppies'></img>
-                </div>
-            </div>
-        );
-    }
-}
+    function closeModal(e) {
+        e.stopPropagation()
+        props.closeModal()
 
+    }
+    
+    let modal = (
+        <div className="dogModal" onClick={ closeModal }>
+            <div className="dogContent" onClick={e => e.stopPropagation()}>
+                <span onClick={() => { this.closeModal()}}>&times;</span>
+                <img className="dogImg"></img>
+                    {displayModal()}
+            </div>
+        </div>
+    )
+
+    return ( props.openModal ? modal : null);
+}
 export default Modal; 
