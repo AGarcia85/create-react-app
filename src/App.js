@@ -3,8 +3,8 @@ import Modal from './Modal/Modal'
 import './App.css';
 // creating a state full function aka class
  class App extends Component {
-   constructor(){
-     super()
+   constructor(props){
+     super(props)
      this.state = {
        doggos: '',
        gsh: '',
@@ -64,6 +64,7 @@ openModal() {
   console.log("click")
 }    
    render() {
+     console.log(this.state.samo)
      return (
       <div className='head'>
         <header>
@@ -73,7 +74,13 @@ openModal() {
         <div className='kenel'>
           <Modal
           open={this.state.open}
-          closeModal={this.openModal}/> 
+          closeModal={this.openModal}
+          src={this.state.doggos}
+          src={this.state.gsh}
+          src={this.state.huskys}
+          src={this.state.mali}
+          src={this.state.mala}
+          src={this.state.samo}/> 
           <img onClick={this.openModal} src={this.state.doggos} alt='doggos'></img>
           <img onClick={this.openModal} src={this.state.gsh} alt='gsh'></img>
           <img onClick={this.openModal} src={this.state.huskys} alt='huskys'></img>

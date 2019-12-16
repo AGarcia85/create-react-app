@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Modal.css';
 
 class Modal extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.closeModal = this.closeModal.bind(this)
     }
     closeModal(evt) {
@@ -15,6 +15,7 @@ class Modal extends Component {
         if(!this.props.open) {
             return null
         }
+        console.log(this.props)
         return(
         <div className="dogModal">
             <div className="dogContent">
