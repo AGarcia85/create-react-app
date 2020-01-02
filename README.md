@@ -1,8 +1,5 @@
 This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
-# Sweet Doggos UI project w/React
-    This Modal project was created using React JS. AT the moment it is not complete since I can not get the images to passover to the modal properly. Stay tunded for updates once I figure it out.
-
 ## Available Scripts
 
 In the project directory, you can run:
