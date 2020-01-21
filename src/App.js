@@ -1,92 +1,100 @@
 import React, { Component } from 'react';
-import Modal from './Modal/Modal'
+import Modal from './Modal/Modal';
+import Doggos from './Puppies/Doggos';
+// import German from './Puppies/German';
+// import Husky from './Puppies/Husky';
+// import Malinois from './Puppies/Malinois';
+// import Malamute from './Puppies/Malamute';
+// import Samoyed from './Puppies/Samoyed';
 import './App.css';
 // creating a state full function aka class
  class App extends Component {
    constructor(props){
      super(props)
      this.state = {
-       doggos: '',
-       gsh: '',
-       huskys: '',
-       mali: '',
-       mala: '',
-       samo: '',
+      //  random: '',
+      //  gsh: '',
+      //  huskys: '',
+      //  mali: '',
+      //  mala: '',
+      //  samo: '',
        open: false,
+       dogData: [],
+       apiData: []
      }
       this.openModal = this.openModal.bind(this)
+      this.morePups = this.morePups.bind(this)
    }
    // create my fetch method
   componentDidMount() {
     fetch("https://dog.ceo/api/breeds/image/random", {})
       .then(res => res.json())
       .then(res => {
-        this.setState({doggos: res.message})
-        console.log(res)
+        this.setState({dogData: [res.message]})
+        // console.log(res)
       })
       fetch("https://dog.ceo/api/breed/germanshepherd/images/random", {})
       .then(res => res.json())
       .then(res => {
-        this.setState({gsh: res.message})
-        console.log(res)
-    })
-    fetch("https://dog.ceo/api/breed/husky/images/random", {})
+        // console.log(res)
+        this.setState({dogData: [...this.state.dogData, res.message], apiData:[...this.state.apiData, res]})
+        console.log(this.state)
+      })
+      fetch("https://dog.ceo/api/breed/husky/images/random", {})
       .then(res => res.json())
       .then(res => {
-        this.setState({huskys: res.message})
-        console.log(res)
+        this.setState({dogData: [...this.state.dogData, res.message], apiData:[...this.state.apiData, res]})
+        console.log(this.state)
+        // console.log(res)
       })
       fetch("https://dog.ceo/api/breed/malinois/images/random", {})
       .then(res => res.json())
       .then(res => {
-        this.setState({mali: res.message})
-        console.log(res)
+        this.setState({dogData: [...this.state.dogData, res.message]})
+        // console.log(res)
     })
       fetch("https://dog.ceo/api/breed/malamute/images/random", {})
       .then(res => res.json())
       .then(res => {
-        this.setState({mala: res.message})
-        console.log(res)
+        this.setState({dogData: [...this.state.dogData, res.message]})
+        //console.log(res)
     })
     fetch("https://dog.ceo/api/breed/samoyed/images/random", {})
     .then(res => res.json())
     .then(res => {
-      this.setState({samo: res.message})
-      console.log(res)
+      this.setState({dogData: [...this.state.dogData, res.message]})
+      console.log(this.state.dogData)
   })
 }
 //Now need to create a method to open Modal with a click event
-openModal() {
+openModal(props) {
   this.setState({
     ...this.state,
     open: !this.state.open
   });
-  console.log("click")
-}    
+  // console.log("click")
+}
+// create a refresh function to load more doggies with click event
+morePups() {
+  window.location.reload(false);
+}
+
    render() {
-     console.log(this.state.samo)
+    //  console.log(this.state.dogData)
      return (
       <div className='head'>
         <header>
           <h1>Sweet Doggos</h1>
+          <button onClick={this.morePups}>Fetch More Doggos</button>
         </header>
 
         <div className='kenel'>
+        <Doggos onClick={this.openModal} doggos={this.state.dogData} label='doggos' />
           <Modal
           open={this.state.open}
           closeModal={this.openModal}
-          src={this.state.doggos}
-          src={this.state.gsh}
-          src={this.state.huskys}
-          src={this.state.mali}
-          src={this.state.mala}
-          src={this.state.samo}/> 
-          <img onClick={this.openModal} src={this.state.doggos} alt='doggos'></img>
-          <img onClick={this.openModal} src={this.state.gsh} alt='gsh'></img>
-          <img onClick={this.openModal} src={this.state.huskys} alt='huskys'></img>
-          <img onClick={this.openModal} src={this.state.mali} alt='mali'></img>
-          <img onClick={this.openModal} src={this.state.mala} alt='malo'></img>
-          <img onClick={this.openModal} src={this.state.samo} alt='samo'></img>
+          doggos={this.state.dogData} label='doggos'
+          /> 
         </div>
 
       </div>

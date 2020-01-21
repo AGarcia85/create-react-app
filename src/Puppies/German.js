@@ -3,10 +3,14 @@ import './Puppies.css'
 //import { Route, Link, Switch } from 'react-router-dom';
 
 class German extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
+        //console.log(this.props.gsh)
         return (
             <div>
-                <button onClick={this.props.openModal}><img src={this.props.gsh} alt='puppies'></img></button>   
+                <img src={this.props.gsh} onClick={this.props.onClick} alt='puppies'></img> 
             </div>
         )
     }

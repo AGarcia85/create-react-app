@@ -20,7 +20,7 @@ class Modal extends Component {
         <div className="dogModal">
             <div className="dogContent">
                 <span onClick={this.closeModal}>&times;</span>
-                <img className='dogImg' src={this.props.src} alt=""></img>
+                <img className='dogImg' src={this.props.doggos} alt=""></img>
             </div>
         </div>
         )

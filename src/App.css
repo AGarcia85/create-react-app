@@ -8,24 +8,19 @@ header {
   color: azure;
 }
 
-.kenel {
-  background-image: url(./Modal/park-7.jpg);
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
+button {
+  background-color: rgb(40, 20, 20);
+  color: azure;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Girassol', cursive;
+  border: 1px solid azure;;
+  border-radius: 20px;
+  margin-bottom: 10px;
 }
 
-img {
-  width: 300px;
-  height: 300px;
-  margin: 1px auto;
-  margin: 40px;
-}
-
-img:hover {
+button:hover {
   cursor: pointer;
+  border: 2px solid darkorange;
+  color: darkorange;
 }
-
