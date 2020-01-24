@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom";
 import Modal from './Modal/Modal';
 import Doggos from './Puppies/Doggos';
 // import German from './Puppies/German';
@@ -18,6 +19,7 @@ import './App.css';
       //  mali: '',
       //  mala: '',
       //  samo: '',
+      // key:"",
        open: false,
        dogData: [],
        apiData: []
@@ -63,7 +65,7 @@ import './App.css';
     .then(res => res.json())
     .then(res => {
       this.setState({dogData: [...this.state.dogData, res.message]})
-      console.log(this.state.dogData)
+      // console.log(this.state.dogData)
   })
 }
 //Now need to create a method to open Modal with a click event
@@ -72,7 +74,7 @@ openModal(props) {
     ...this.state,
     open: !this.state.open
   });
-  // console.log("click")
+  console.log("click")
 }
 // create a refresh function to load more doggies with click event
 morePups() {
@@ -90,11 +92,13 @@ morePups() {
 
         <div className='kenel'>
         <Doggos onClick={this.openModal} doggos={this.state.dogData} label='doggos' />
+        
           <Modal
+          
+          {...this.state}
           open={this.state.open}
           closeModal={this.openModal}
-          doggos={this.state.dogData} label='doggos'
-          /> 
+          />
         </div>
 
       </div>

@@ -8,14 +8,14 @@ class Modal extends Component {
     }
     closeModal(evt) {
         this.props.closeModal && this.props.closeModal(evt)
-        console.log('onclick')
+        // console.log('onclick')
     }
 
     render() {
         if(!this.props.open) {
             return null
         }
-        console.log(this.props)
+        console.log(this.props.doggos)
         return(
         <div className="dogModal">
             <div className="dogContent">

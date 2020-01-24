@@ -7,8 +7,8 @@ class Random extends Component {
         super(props)
     }
     render() {
-        const picture = this.props.doggos.map(pic => {
-            return(<img src={pic} onClick={this.props.onClick} alt='puppies'></img>)
+        const picture = this.props.doggos.map((pic, index) => {
+            return(<img src={pic} key={index} onClick={this.props.onClick} alt='puppies'></img>)
         })
         return (
             <div className="pound">
