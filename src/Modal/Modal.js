@@ -9,23 +9,18 @@ class Modal extends Component {
     }
     closeModal(evt) {
         this.props.closeModal && this.props.closeModal(evt)
-        // console.log('onclick')
     }
 
     render() {
         if(!this.props.open) {
             return null
         }
-        console.log(this.props.puppos)
-        const modal = this.props.puppos.map((pic) => {
-            return( <img src={pic.src} key={pic.id} alt="modal"></img>)
-        })
+        
         return(
         <div className="dogModal">
             <div className="dogContent">
                 <span onClick={this.closeModal}>&times;</span>
-                {modal}
-                {/* <img className='dogImg' src={modal} alt=""></img> */}
+                <img className='dogImg' src={this.props.puppos[this.props.currentDog].image} alt="pupperoo"></img>
             </div>
         </div>
         )
